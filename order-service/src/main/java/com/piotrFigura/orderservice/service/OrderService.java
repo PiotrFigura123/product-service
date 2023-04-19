@@ -16,7 +16,7 @@ public class OrderService {
         order.setOrderNumber(UUID.randomUUID().toString());
         orderRequest.getOrderLineItemsDtoList()
                 .stream()
-                .map(orderLineItemsDto -> mapToDto(orderLineItemsDto))
+                .map(orderLineItemsDto -> mapToDto(orderLineItemsDto)).map(orderLineItems -> order.setOrderNumber());
     }
 
     private OrderLineItems mapToDto(final OrderLineItemsDto orderLineItemsDto) {
